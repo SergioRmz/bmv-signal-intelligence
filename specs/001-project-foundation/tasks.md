@@ -14,9 +14,9 @@
 
 **Purpose**: Create baseline directories and anchor files used by all stories.
 
-- [ ] T001 Create foundation directories in `docs/architecture/`, `docs/policies/`, `docs/validation/`, `contracts/events/`, `data/samples/asset-events/valid/`, and `data/samples/asset-events/invalid/`
-- [ ] T002 Create initial root docs stubs in `README.md` and `AGENTS.md` aligned with current spec context
-- [ ] T003 [P] Create foundation spec support index in `docs/foundation/README.md` referencing governed artifact paths
+- [x] T001 Create foundation directories in `docs/architecture/`, `docs/policies/`, `docs/validation/`, `contracts/events/`, `data/samples/asset-events/valid/`, and `data/samples/asset-events/invalid/`
+- [x] T002 Create initial root docs stubs in `README.md` and `AGENTS.md` aligned with current spec context
+- [x] T003 [P] Create foundation spec support index in `docs/foundation/README.md` referencing governed artifact paths
 
 ---
 
@@ -26,12 +26,12 @@
 
 **CRITICAL**: No user story can be considered complete before this phase is done.
 
-- [ ] T004 Define artifact manifest with required sections in `docs/foundation/artifact-manifest.md`
-- [ ] T005 [P] Define architecture baseline sections in `docs/architecture/foundation-architecture.md`
-- [ ] T006 [P] Define allowed source categories and criteria in `docs/policies/allowed-sources.md`
-- [ ] T007 Define base AssetEvent JSON Schema with required fields in `contracts/events/asset-event.schema.json`
-- [ ] T008 Define lightweight validation procedure and evidence format in `docs/validation/event-contract-validation.md`
-- [ ] T009 [P] Create rule ID registry for contract/policy violations in `docs/validation/rule-ids.md`
+- [x] T004 Define artifact manifest with required sections in `docs/foundation/artifact-manifest.md`
+- [x] T005 [P] Define architecture baseline sections in `docs/architecture/foundation-architecture.md`
+- [x] T006 [P] Define allowed source categories and criteria in `docs/policies/allowed-sources.md`
+- [x] T007 Define base AssetEvent JSON Schema with required fields in `contracts/events/asset-event.schema.json`
+- [x] T008 Define lightweight validation procedure and evidence format in `docs/validation/event-contract-validation.md`
+- [x] T009 [P] Create rule ID registry for contract/policy violations in `docs/validation/rule-ids.md`
 
 **Checkpoint**: Shared foundation and contract guardrails are defined.
 
@@ -45,15 +45,15 @@
 
 ### Tests for User Story 1 (REQUIRED) ⚠️
 
-- [ ] T010 [P] [US1] Add artifact-presence check script in `scripts/validation/check-foundation-artifacts.sh`
-- [ ] T011 [P] [US1] Add integration review checklist for onboarding flow in `docs/validation/us1-independent-test.md`
+- [x] T010 [P] [US1] Add artifact-presence check script in `scripts/validation/check-foundation-artifacts.sh`
+- [x] T011 [P] [US1] Add integration review checklist for onboarding flow in `docs/validation/us1-independent-test.md`
 
 ### Implementation for User Story 1
 
-- [ ] T012 [US1] Complete project purpose, scope, non-goals, disclaimer, planned stack, and methodology in `README.md`
-- [ ] T013 [US1] Complete agent operating guidance in `AGENTS.md`
-- [ ] T014 [US1] Complete artifact manifest section requirements in `docs/foundation/artifact-manifest.md`
-- [ ] T015 [US1] Add maintainer review procedure for baseline acceptance in `docs/validation/us1-review-procedure.md`
+- [x] T012 [US1] Complete project purpose, scope, non-goals, disclaimer, planned stack, and methodology in `README.md`
+- [x] T013 [US1] Complete agent operating guidance in `AGENTS.md`
+- [x] T014 [US1] Complete artifact manifest section requirements in `docs/foundation/artifact-manifest.md`
+- [x] T015 [US1] Add maintainer review procedure for baseline acceptance in `docs/validation/us1-review-procedure.md`
 
 **Checkpoint**: US1 is independently testable and reviewable.
 
@@ -67,15 +67,15 @@
 
 ### Tests for User Story 2 (REQUIRED) ⚠️
 
-- [ ] T016 [P] [US2] Add scope-guardrail validation checklist in `docs/validation/us2-scope-guardrail-checklist.md`
-- [ ] T017 [P] [US2] Add prohibited-change examples and expected review outcomes in `docs/validation/us2-negative-scenarios.md`
+- [x] T016 [P] [US2] Add scope-guardrail validation checklist in `docs/validation/us2-scope-guardrail-checklist.md`
+- [x] T017 [P] [US2] Add prohibited-change examples and expected review outcomes in `docs/validation/us2-negative-scenarios.md`
 
 ### Implementation for User Story 2
 
-- [ ] T018 [US2] Document explicit out-of-scope implementation boundaries in `README.md`
-- [ ] T019 [US2] Document contributor enforcement process for non-goals in `AGENTS.md`
-- [ ] T020 [US2] Document scaffolding-allowed vs runtime-not-allowed matrix in `docs/foundation/scaffolding-boundaries.md`
-- [ ] T021 [US2] Add PR evidence template for scope-compliance confirmation in `.github/pull_request_template.md`
+- [x] T018 [US2] Document explicit out-of-scope implementation boundaries in `README.md`
+- [x] T019 [US2] Document contributor enforcement process for non-goals in `AGENTS.md`
+- [x] T020 [US2] Document scaffolding-allowed vs runtime-not-allowed matrix in `docs/foundation/scaffolding-boundaries.md`
+- [x] T021 [US2] Add PR evidence template for scope-compliance confirmation in `.github/pull_request_template.md`
 
 **Checkpoint**: US2 independently prevents scope drift.
 
@@ -89,20 +89,20 @@
 
 ### Tests for User Story 3 (REQUIRED) ⚠️
 
-- [ ] T022 [P] [US3] Add contract test scenario document for required AssetEvent fields in `specs/001-project-foundation/contracts/test-required-fields.md`
-- [ ] T023 [P] [US3] Add integration validation runbook for clean-clone execution in `specs/001-project-foundation/contracts/test-validation-runbook.md`
-- [ ] T024 [P] [US3] Add reproducibility verification checklist in `docs/validation/us3-reproducibility-checklist.md`
+- [x] T022 [P] [US3] Add contract test scenario document for required AssetEvent fields in `specs/001-project-foundation/contracts/test-required-fields.md`
+- [x] T023 [P] [US3] Add integration validation runbook for clean-clone execution in `specs/001-project-foundation/contracts/test-validation-runbook.md`
+- [x] T024 [P] [US3] Add reproducibility verification checklist in `docs/validation/us3-reproducibility-checklist.md`
 
 ### Implementation for User Story 3
 
-- [ ] T025 [US3] Finalize required top-level and nested fields in `contracts/events/asset-event.schema.json`
-- [ ] T026 [P] [US3] Create first valid sample in `data/samples/asset-events/valid/asset-event-valid-01.json`
-- [ ] T027 [P] [US3] Create second valid sample in `data/samples/asset-events/valid/asset-event-valid-02.json`
-- [ ] T028 [P] [US3] Create first invalid sample with rule mapping in `data/samples/asset-events/invalid/asset-event-invalid-01-missing-required.json`
-- [ ] T029 [P] [US3] Create second invalid sample with rule mapping in `data/samples/asset-events/invalid/asset-event-invalid-02-bad-source-category.json`
-- [ ] T030 [P] [US3] Create third invalid sample with rule mapping in `data/samples/asset-events/invalid/asset-event-invalid-03-invalid-timestamp.json`
-- [ ] T031 [US3] Document per-sample violated rule IDs in `docs/validation/sample-rule-mapping.md`
-- [ ] T032 [US3] Finalize lightweight local validation commands and PR evidence steps in `docs/validation/event-contract-validation.md`
+- [x] T025 [US3] Finalize required top-level and nested fields in `contracts/events/asset-event.schema.json`
+- [x] T026 [P] [US3] Create first valid sample in `data/samples/asset-events/valid/asset-event-valid-01.json`
+- [x] T027 [P] [US3] Create second valid sample in `data/samples/asset-events/valid/asset-event-valid-02.json`
+- [x] T028 [P] [US3] Create first invalid sample with rule mapping in `data/samples/asset-events/invalid/asset-event-invalid-01-missing-required.json`
+- [x] T029 [P] [US3] Create second invalid sample with rule mapping in `data/samples/asset-events/invalid/asset-event-invalid-02-bad-source-category.json`
+- [x] T030 [P] [US3] Create third invalid sample with rule mapping in `data/samples/asset-events/invalid/asset-event-invalid-03-invalid-timestamp.json`
+- [x] T031 [US3] Document per-sample violated rule IDs in `docs/validation/sample-rule-mapping.md`
+- [x] T032 [US3] Finalize lightweight local validation commands and PR evidence steps in `docs/validation/event-contract-validation.md`
 
 **Checkpoint**: US3 independently provides contract-first collaboration baseline.
 
@@ -112,10 +112,10 @@
 
 **Purpose**: Final consistency, traceability, and review readiness across all stories.
 
-- [ ] T033 [P] Cross-check terminology consistency across `README.md`, `AGENTS.md`, `docs/`, `contracts/`, and `specs/001-project-foundation/`
-- [ ] T034 [P] Verify all required artifact sections from `docs/foundation/artifact-manifest.md` are complete
-- [ ] T035 Run end-to-end quickstart validation and capture final evidence in `specs/001-project-foundation/quickstart.md`
-- [ ] T036 Prepare final reviewer handoff notes in `docs/validation/foundation-review-handoff.md`
+- [x] T033 [P] Cross-check terminology consistency across `README.md`, `AGENTS.md`, `docs/`, `contracts/`, and `specs/001-project-foundation/`
+- [x] T034 [P] Verify all required artifact sections from `docs/foundation/artifact-manifest.md` are complete
+- [x] T035 Run end-to-end quickstart validation and capture final evidence in `specs/001-project-foundation/quickstart.md`
+- [x] T036 Prepare final reviewer handoff notes in `docs/validation/foundation-review-handoff.md`
 
 ---
 

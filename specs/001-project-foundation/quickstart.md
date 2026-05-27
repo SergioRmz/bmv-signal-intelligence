@@ -28,11 +28,12 @@ Required paths:
 ## 4) Run local contract checks (lightweight)
 Use repository-local commands only (no deployed services, no cloud dependencies).
 
-Recommended command pattern:
+Command:
 ```bash
-# Example pattern - use project-provided validator command once added
-<local-validator-command> contracts/events/asset-event.schema.json data/samples/asset-events
+scripts/validation/check-foundation-artifacts.sh
 ```
+
+Expected output includes `PASS foundation artifacts and samples validated`.
 
 ## 5) Record PR validation evidence
 Include in PR description:
@@ -42,3 +43,17 @@ Include in PR description:
 
 ## Guardrails
 - Do not add ingestion logic, Kafka topology, AI analysis pipelines, AWS deployment artifacts, RAG components, or dashboard runtime code.
+
+## Validation Evidence
+
+Latest local validation command:
+
+```bash
+scripts/validation/check-foundation-artifacts.sh
+```
+
+Latest observed result:
+
+```text
+PASS foundation artifacts and samples validated
+```
