@@ -27,13 +27,19 @@ Provide a local review path for the IPC-only asset watchlist feature before impl
 
 ## Local Validation
 
-Run from the repository root after implementation tasks create the validation script:
+Run from the repository root:
 
 ```bash
 scripts/validation/check-asset-watchlist.sh
 ```
 
-The command should verify required paths, JSON parseability, IPC-only constraints, rule IDs, invalid sample mappings, and non-advisory content guardrails.
+The command verifies required paths, JSON parseability, IPC-only constraints, rule IDs, invalid sample mappings, and non-advisory content guardrails.
+
+Expected output:
+
+```text
+PASS: Canonical IPC watchlist and samples validated
+```
 
 ## PR Evidence
 
@@ -51,3 +57,26 @@ Pull requests for this feature should include:
 ## Expected Outcome
 
 Reviewers can reproduce validation from a clean clone in 10 minutes or less using repository-local instructions only.
+
+## Validation Evidence
+
+Command executed from repository root:
+
+```bash
+scripts/validation/check-asset-watchlist.sh
+```
+
+Result:
+
+```text
+PASS: Canonical IPC watchlist and samples validated
+```
+
+Review summary:
+
+- Current watchlist version: `2026.05.27`.
+- Active entries: 1.
+- Valid watchlist samples: 1.
+- Invalid watchlist samples: 3.
+- Invalid samples map to `WL-REQ-002`, `WL-REQ-005`, and `WL-REQ-009` in `docs/validation/sample-rule-mapping.md`.
+- No runtime ingestion, external API, scraping, database, endpoint, streaming, dashboard, or AI behavior was introduced.

@@ -14,10 +14,10 @@
 
 **Purpose**: Create artifact locations and establish the implementation surface for the IPC-only watchlist.
 
-- [ ] T001 Create watchlist and sample directories in `data/watchlists/`, `data/samples/watchlists/valid/`, and `data/samples/watchlists/invalid/`
-- [ ] T002 [P] Create watchlist validation guide stub in `docs/validation/asset-watchlist-validation.md`
-- [ ] T003 [P] Create validation script stub in `scripts/validation/check-asset-watchlist.sh`
-- [ ] T004 [P] Create root watchlist contract directory in `contracts/watchlists/`
+- [X] T001 Create watchlist and sample directories in `data/watchlists/`, `data/samples/watchlists/valid/`, and `data/samples/watchlists/invalid/`
+- [X] T002 [P] Create watchlist validation guide stub in `docs/validation/asset-watchlist-validation.md`
+- [X] T003 [P] Create validation script stub in `scripts/validation/check-asset-watchlist.sh`
+- [X] T004 [P] Create root watchlist contract directory in `contracts/watchlists/`
 
 ---
 
@@ -27,11 +27,11 @@
 
 **CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T005 Copy and adapt design schema from `specs/002-asset-watchlist/contracts/asset-watchlist.schema.json` into `contracts/watchlists/asset-watchlist.schema.json`
-- [ ] T006 Add watchlist artifact paths and minimum required sections to `docs/foundation/artifact-manifest.md`
-- [ ] T007 Add `WL-REQ-001` through `WL-REQ-010` watchlist rule IDs to `docs/validation/rule-ids.md`
-- [ ] T008 Define local validation commands, evidence format, and failure handling in `docs/validation/asset-watchlist-validation.md`
-- [ ] T009 Implement JSON syntax, path presence, and IPC-only structural checks in `scripts/validation/check-asset-watchlist.sh`
+- [X] T005 Copy and adapt design schema from `specs/002-asset-watchlist/contracts/asset-watchlist.schema.json` into `contracts/watchlists/asset-watchlist.schema.json`
+- [X] T006 Add watchlist artifact paths and minimum required sections to `docs/foundation/artifact-manifest.md`
+- [X] T007 Add `WL-REQ-001` through `WL-REQ-010` watchlist rule IDs to `docs/validation/rule-ids.md`
+- [X] T008 Define local validation commands, evidence format, and failure handling in `docs/validation/asset-watchlist-validation.md`
+- [X] T009 Implement JSON syntax, path presence, and IPC-only structural checks in `scripts/validation/check-asset-watchlist.sh`
 
 **Checkpoint**: Watchlist contract, rule IDs, manifest traceability, and validation entry point are defined.
 
@@ -45,16 +45,16 @@
 
 ### Tests for User Story 1
 
-- [ ] T010 [P] [US1] Add IPC baseline manual review checklist to `docs/validation/asset-watchlist-validation.md`
-- [ ] T011 [P] [US1] Add contract validation scenario for the canonical IPC entry in `specs/002-asset-watchlist/contracts/test-ipc-entry.md`
+- [X] T010 [P] [US1] Add IPC baseline manual review checklist to `docs/validation/asset-watchlist-validation.md`
+- [X] T011 [P] [US1] Add contract validation scenario for the canonical IPC entry in `specs/002-asset-watchlist/contracts/test-ipc-entry.md`
 
 ### Implementation for User Story 1
 
-- [ ] T012 [US1] Create canonical IPC watchlist artifact in `data/watchlists/asset-watchlist.json`
-- [ ] T013 [US1] Ensure `data/watchlists/asset-watchlist.json` contains `watchlist_id`, `version`, `effective_date`, `purpose`, and exactly one active `IPC` asset entry
-- [ ] T014 [US1] Ensure the `IPC` entry in `data/watchlists/asset-watchlist.json` uses display name `S&P/BMV IPC`, asset type `index`, currency `MXN`, and BMV/Mexico market metadata
-- [ ] T015 [US1] Add source reference and non-advisory review rationale in the `traceability` object of `data/watchlists/asset-watchlist.json`
-- [ ] T016 [US1] Extend `scripts/validation/check-asset-watchlist.sh` to verify the canonical active `IPC` entry in `data/watchlists/asset-watchlist.json`
+- [X] T012 [US1] Create canonical IPC watchlist artifact in `data/watchlists/asset-watchlist.json`
+- [X] T013 [US1] Ensure `data/watchlists/asset-watchlist.json` contains `watchlist_id`, `version`, `effective_date`, `purpose`, and exactly one active `IPC` asset entry
+- [X] T014 [US1] Ensure the `IPC` entry in `data/watchlists/asset-watchlist.json` uses display name `S&P/BMV IPC`, asset type `index`, currency `MXN`, and BMV/Mexico market metadata
+- [X] T015 [US1] Add source reference and non-advisory review rationale in the `traceability` object of `data/watchlists/asset-watchlist.json`
+- [X] T016 [US1] Extend `scripts/validation/check-asset-watchlist.sh` to verify the canonical active `IPC` entry in `data/watchlists/asset-watchlist.json`
 
 **Checkpoint**: US1 is independently reviewable as the minimal watchlist MVP.
 
@@ -68,18 +68,18 @@
 
 ### Tests for User Story 2
 
-- [ ] T017 [P] [US2] Add valid sample expectation to `docs/validation/asset-watchlist-validation.md`
-- [ ] T018 [P] [US2] Add invalid sample rule-mapping expectation to `docs/validation/asset-watchlist-validation.md`
+- [X] T017 [P] [US2] Add valid sample expectation to `docs/validation/asset-watchlist-validation.md`
+- [X] T018 [P] [US2] Add invalid sample rule-mapping expectation to `docs/validation/asset-watchlist-validation.md`
 
 ### Implementation for User Story 2
 
-- [ ] T019 [P] [US2] Create valid IPC sample in `data/samples/watchlists/valid/asset-watchlist-valid-ipc.json`
-- [ ] T020 [P] [US2] Create missing-required-field invalid sample in `data/samples/watchlists/invalid/asset-watchlist-invalid-missing-required.json`
-- [ ] T021 [P] [US2] Create wrong-asset-type invalid sample in `data/samples/watchlists/invalid/asset-watchlist-invalid-wrong-asset-type.json`
-- [ ] T022 [P] [US2] Create advisory-content invalid sample in `data/samples/watchlists/invalid/asset-watchlist-invalid-advisory-content.json`
-- [ ] T023 [US2] Add watchlist invalid sample mappings to `docs/validation/sample-rule-mapping.md`
-- [ ] T024 [US2] Extend `scripts/validation/check-asset-watchlist.sh` to verify valid sample pass conditions in `data/samples/watchlists/valid/`
-- [ ] T025 [US2] Extend `scripts/validation/check-asset-watchlist.sh` to verify invalid sample failures and rule mappings in `data/samples/watchlists/invalid/`
+- [X] T019 [P] [US2] Create valid IPC sample in `data/samples/watchlists/valid/asset-watchlist-valid-ipc.json`
+- [X] T020 [P] [US2] Create missing-required-field invalid sample in `data/samples/watchlists/invalid/asset-watchlist-invalid-missing-required.json`
+- [X] T021 [P] [US2] Create wrong-asset-type invalid sample in `data/samples/watchlists/invalid/asset-watchlist-invalid-wrong-asset-type.json`
+- [X] T022 [P] [US2] Create advisory-content invalid sample in `data/samples/watchlists/invalid/asset-watchlist-invalid-advisory-content.json`
+- [X] T023 [US2] Add watchlist invalid sample mappings to `docs/validation/sample-rule-mapping.md`
+- [X] T024 [US2] Extend `scripts/validation/check-asset-watchlist.sh` to verify valid sample pass conditions in `data/samples/watchlists/valid/`
+- [X] T025 [US2] Extend `scripts/validation/check-asset-watchlist.sh` to verify invalid sample failures and rule mappings in `data/samples/watchlists/invalid/`
 
 **Checkpoint**: US2 is independently testable through samples and rule-ID mappings.
 
@@ -93,15 +93,15 @@
 
 ### Tests for User Story 3
 
-- [ ] T026 [P] [US3] Add non-advisory content scan expectations to `docs/validation/asset-watchlist-validation.md`
-- [ ] T027 [P] [US3] Add scope guardrail review checklist for watchlist artifacts in `docs/validation/asset-watchlist-validation.md`
+- [X] T026 [P] [US3] Add non-advisory content scan expectations to `docs/validation/asset-watchlist-validation.md`
+- [X] T027 [P] [US3] Add scope guardrail review checklist for watchlist artifacts in `docs/validation/asset-watchlist-validation.md`
 
 ### Implementation for User Story 3
 
-- [ ] T028 [US3] Extend `scripts/validation/check-asset-watchlist.sh` to reject prohibited advisory phrases and live-price fields in `data/watchlists/asset-watchlist.json`
-- [ ] T029 [US3] Extend `scripts/validation/check-asset-watchlist.sh` to reject prohibited advisory phrases and live-price fields in `data/samples/watchlists/`
-- [ ] T030 [US3] Document traceability review requirements for IPC source references in `docs/validation/asset-watchlist-validation.md`
-- [ ] T031 [US3] Document explicit no-runtime exclusions for this feature in `docs/validation/asset-watchlist-validation.md`
+- [X] T028 [US3] Extend `scripts/validation/check-asset-watchlist.sh` to reject prohibited advisory phrases and live-price fields in `data/watchlists/asset-watchlist.json`
+- [X] T029 [US3] Extend `scripts/validation/check-asset-watchlist.sh` to reject prohibited advisory phrases and live-price fields in `data/samples/watchlists/`
+- [X] T030 [US3] Document traceability review requirements for IPC source references in `docs/validation/asset-watchlist-validation.md`
+- [X] T031 [US3] Document explicit no-runtime exclusions for this feature in `docs/validation/asset-watchlist-validation.md`
 
 **Checkpoint**: US3 independently enforces non-advisory, traceable, no-runtime delivery boundaries.
 
@@ -111,11 +111,11 @@
 
 **Purpose**: Final consistency, reproducibility, and review readiness across all stories.
 
-- [ ] T032 [P] Update `specs/002-asset-watchlist/quickstart.md` with final validation command output expectations
-- [ ] T033 [P] Cross-check IPC terminology across `data/watchlists/asset-watchlist.json`, `docs/validation/asset-watchlist-validation.md`, and `contracts/watchlists/asset-watchlist.schema.json`
-- [ ] T034 Run `scripts/validation/check-asset-watchlist.sh` from repository root and capture pass/fail evidence in `specs/002-asset-watchlist/quickstart.md`
-- [ ] T035 Verify all new watchlist artifacts are listed in `docs/foundation/artifact-manifest.md` or justified by this task plan
-- [ ] T036 Verify no runtime application behavior was added and document the review result in `specs/002-asset-watchlist/quickstart.md`
+- [X] T032 [P] Update `specs/002-asset-watchlist/quickstart.md` with final validation command output expectations
+- [X] T033 [P] Cross-check IPC terminology across `data/watchlists/asset-watchlist.json`, `docs/validation/asset-watchlist-validation.md`, and `contracts/watchlists/asset-watchlist.schema.json`
+- [X] T034 Run `scripts/validation/check-asset-watchlist.sh` from repository root and capture pass/fail evidence in `specs/002-asset-watchlist/quickstart.md`
+- [X] T035 Verify all new watchlist artifacts are listed in `docs/foundation/artifact-manifest.md` or justified by this task plan
+- [X] T036 Verify no runtime application behavior was added and document the review result in `specs/002-asset-watchlist/quickstart.md`
 
 ---
 

@@ -1,0 +1,22 @@
+{
+  "watchlist_id": "asset-watchlist",
+  "version": "2026.05.27-sample-invalid-missing-required",
+  "purpose": "Invalid sample missing a required effective date.",
+  "assets": [
+    {
+      "symbol": "IPC",
+      "display_name": "S&P/BMV IPC",
+      "market": {
+        "venue": "Bolsa Mexicana de Valores",
+        "country": "MX"
+      },
+      "asset_type": "index",
+      "currency": "MXN",
+      "active": true,
+      "traceability": {
+        "source_reference": "Public IPC index reference materials; no market values captured.",
+        "review_rationale": "Invalid example for required-field validation."
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "watchlist_id": "asset-watchlist",
+  "version": "2026.05.27",
+  "effective_date": "2026-05-27",
+  "purpose": "Repository-local allowlist that limits future monitoring scope to the IPC index for educational and technical market intelligence work.",
+  "assets": [
+    {
+      "symbol": "IPC",
+      "display_name": "S&P/BMV IPC",
+      "market": {
+        "venue": "Bolsa Mexicana de Valores",
+        "country": "MX",
+        "index_family": "S&P/BMV indices"
+      },
+      "asset_type": "index",
+      "currency": "MXN",
+      "active": true,
+      "notes": "IPC observations are index points; MXN records the Mexican market context for the watchlist entry.",
+      "traceability": {
+        "source_reference": "BMV and S&P Dow Jones Indices public IPC index reference materials; no market values captured.",
+        "review_rationale": "Included as the first governed Mexican market index scope for future ingestion planning.",
+        "reviewed_by": "maintainer",
+        "reviewed_at": "2026-05-27"
+      }
+    }
+  ]
+}

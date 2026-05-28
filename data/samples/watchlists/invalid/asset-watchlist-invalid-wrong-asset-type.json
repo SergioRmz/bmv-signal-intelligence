@@ -1,0 +1,23 @@
+{
+  "watchlist_id": "asset-watchlist",
+  "version": "2026.05.27-sample-invalid-wrong-asset-type",
+  "effective_date": "2026-05-27",
+  "purpose": "Invalid sample with an unsupported asset type.",
+  "assets": [
+    {
+      "symbol": "IPC",
+      "display_name": "S&P/BMV IPC",
+      "market": {
+        "venue": "Bolsa Mexicana de Valores",
+        "country": "MX"
+      },
+      "asset_type": "equity",
+      "currency": "MXN",
+      "active": true,
+      "traceability": {
+        "source_reference": "Public IPC index reference materials; no market values captured.",
+        "review_rationale": "Invalid example for controlled-vocabulary validation."
+      }
+    }
+  ]
+}
