@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bmv-signal-intelligence.local/contracts/asset-watchlist.schema.json",
   "title": "Asset Watchlist",
-  "description": "Contract for the IPC-only local asset watchlist artifact.",
+  "description": "Contract for the equity-primary Mexican market asset watchlist artifact.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -31,8 +31,18 @@
     },
     "assets": {
       "type": "array",
-      "minItems": 1,
-      "maxItems": 1,
+      "minItems": 5,
+      "maxItems": 15,
+      "contains": {
+        "type": "object",
+        "required": ["asset_type", "asset_role", "active"],
+        "properties": {
+          "asset_type": { "const": "equity" },
+          "asset_role": { "const": "monitoring_target" },
+          "active": { "const": true }
+        }
+      },
+      "minContains": 5,
       "items": {
         "$ref": "#/$defs/watchlistEntry"
       }
@@ -47,6 +57,7 @@
         "display_name",
         "market",
         "asset_type",
+        "asset_role",
         "currency",
         "active",
         "traceability"
@@ -54,26 +65,29 @@
       "properties": {
         "symbol": {
           "type": "string",
-          "const": "IPC"
+          "pattern": "^[A-Z0-9]+$"
         },
         "display_name": {
           "type": "string",
-          "const": "S&P/BMV IPC"
+          "minLength": 1
         },
         "market": {
           "$ref": "#/$defs/marketMetadata"
         },
         "asset_type": {
           "type": "string",
-          "const": "index"
+          "enum": ["equity", "index"]
+        },
+        "asset_role": {
+          "type": "string",
+          "enum": ["monitoring_target", "reference_benchmark"]
         },
         "currency": {
           "type": "string",
           "const": "MXN"
         },
         "active": {
-          "type": "boolean",
-          "const": true
+          "type": "boolean"
         },
         "notes": {
           "type": "string"
@@ -81,7 +95,35 @@
         "traceability": {
           "$ref": "#/$defs/traceabilityContext"
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "asset_role": { "const": "monitoring_target" }
+            }
+          },
+          "then": {
+            "properties": {
+              "asset_type": { "const": "equity" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "asset_type": { "const": "index" }
+            }
+          },
+          "then": {
+            "properties": {
+              "symbol": { "const": "IPC" },
+              "display_name": { "const": "S&P/BMV IPC" },
+              "asset_role": { "const": "reference_benchmark" }
+            }
+          }
+        }
+      ]
     },
     "marketMetadata": {
       "type": "object",
@@ -98,6 +140,13 @@
         "country": {
           "type": "string",
           "minLength": 1
+        },
+        "exchange_symbol": {
+          "type": "string",
+          "minLength": 1
+        },
+        "index_membership": {
+          "type": "string"
         },
         "index_family": {
           "type": "string"

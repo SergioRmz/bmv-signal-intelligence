@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Define local validation rules and review evidence for the IPC-only asset watchlist.
+Define local validation rules and review evidence for the equity-primary Mexican market asset watchlist. Individual equity entries are the primary monitoring targets; `S&P/BMV IPC` may appear only as a reference benchmark index.
 
 ## Local Commands
 
@@ -18,32 +18,33 @@ The command validates the canonical watchlist, valid samples, invalid sample map
 
 - `WL-REQ-001`: Watchlist file must exist at `data/watchlists/asset-watchlist.json`.
 - `WL-REQ-002`: Watchlist must include `watchlist_id`, `version`, `effective_date`, `purpose`, and `assets`.
-- `WL-REQ-003`: Watchlist must contain exactly one active IPC entry.
-- `WL-REQ-004`: IPC entry must use symbol `IPC` and display name `S&P/BMV IPC`.
-- `WL-REQ-005`: IPC entry `asset_type` must be `index`.
-- `WL-REQ-006`: IPC entry `currency` must be `MXN`.
-- `WL-REQ-007`: IPC entry must include market metadata sufficient to identify BMV/Mexico context.
-- `WL-REQ-008`: IPC entry must include traceability context.
+- `WL-REQ-003`: Watchlist must include at least five active equity entries with `asset_role` set to `monitoring_target`.
+- `WL-REQ-004`: Watchlist entry symbols must be non-empty, unique, canonical local identifiers.
+- `WL-REQ-005`: Primary monitoring targets must use `asset_type` `equity`; `index` is allowed only for `IPC` as `reference_benchmark`.
+- `WL-REQ-006`: Watchlist entries must use currency `MXN`.
+- `WL-REQ-007`: Watchlist entries must include market metadata sufficient to identify BMV/Mexico context.
+- `WL-REQ-008`: Watchlist entries must include traceability context.
 - `WL-REQ-009`: Watchlist and samples must not include live prices, target prices, ratings, trading signals, recommendations, or performance forecasts.
 - `WL-REQ-010`: Invalid watchlist samples must map to at least one rule ID in `docs/validation/sample-rule-mapping.md`.
 
-## IPC Baseline Manual Review
+## Equity Baseline Manual Review
 
 Reviewers must confirm `data/watchlists/asset-watchlist.json` satisfies these baseline checks:
 
 - The file exists and is valid JSON.
 - `watchlist_id` is `asset-watchlist`.
 - `version`, `effective_date`, and `purpose` are present and non-empty.
-- `assets` contains exactly one active entry.
-- The active entry uses symbol `IPC` and display name `S&P/BMV IPC`.
-- The active entry uses asset type `index` and currency `MXN`.
-- Market metadata identifies BMV/Mexico context.
+- `assets` contains at least five active individual equity monitoring targets.
+- Each primary monitoring target uses `asset_type` `equity` and `asset_role` `monitoring_target`.
+- Each entry uses currency `MXN`.
+- Market metadata identifies BMV/Mexico context and preserves exchange symbols where useful.
 - Traceability includes source reference and non-advisory review rationale.
-- Notes clarify that IPC observations are index points when needed.
+- `IPC` appears only as a reference benchmark with `asset_type` `index` and `asset_role` `reference_benchmark`.
+- No index entry replaces or reduces the individual equity monitoring targets.
 
 ## Sample Expectations
 
-- Valid samples under `data/samples/watchlists/valid/` must pass the same IPC-only structural checks as the canonical watchlist.
+- Valid samples under `data/samples/watchlists/valid/` must pass the same equity-primary structural checks as the canonical watchlist.
 - Invalid samples under `data/samples/watchlists/invalid/` must remain parseable JSON but fail at least one `WL-REQ-*` rule.
 - Every invalid watchlist sample must be listed in `docs/validation/sample-rule-mapping.md` with at least one violated rule ID.
 
@@ -51,14 +52,14 @@ Reviewers must confirm `data/watchlists/asset-watchlist.json` satisfies these ba
 
 The local validation script rejects watchlist and sample JSON when it finds prohibited terms or fields associated with live prices, target prices, ratings, rankings, trading signals, recommendations, portfolio allocation, or performance forecasts.
 
-Reviewers must also confirm the artifacts do not imply that IPC inclusion is a buy, sell, hold, allocation, ranking, or forecasting decision. IPC inclusion only defines future monitoring scope.
+Reviewers must also confirm the artifacts do not imply that any equity or index inclusion is a buy, sell, hold, allocation, ranking, or forecasting decision. Watchlist inclusion only defines allowed future monitoring scope.
 
 ## Traceability Review
 
-Each IPC watchlist entry must include traceability context with:
+Each watchlist entry must include traceability context with:
 
-- A source reference that identifies the public index reference category or documentation basis used for review.
-- A review rationale that explains why IPC is in scope without making performance claims.
+- A source reference that identifies the public issuer/listing, IPC constituent reference category, or benchmark reference basis used for review.
+- A review rationale that explains why the asset is in scope without making performance claims.
 - Optional reviewer and review date metadata when available.
 
 Traceability must be sufficient for maintainers and future ingestion service owners to understand the source context without fetching live market data.
@@ -85,7 +86,8 @@ Pull requests must include:
 - Command executed.
 - Pass/fail result.
 - Current watchlist version.
-- Active entry count.
+- Active equity monitoring target count.
+- Reference benchmark count.
 - Valid watchlist sample count.
 - Invalid watchlist sample count.
 - Invalid sample to violated rule ID mapping.
@@ -95,7 +97,7 @@ Pull requests must include:
 
 - Missing watchlist artifact: create `data/watchlists/asset-watchlist.json` or update the governing spec.
 - Invalid JSON: fix the watchlist or sample file.
-- IPC constraint failure: update the artifact to match the canonical `IPC` entry requirements.
+- Equity-primary constraint failure: update the artifact so individual equities remain the primary monitoring targets.
 - Invalid sample without rule mapping: update `docs/validation/sample-rule-mapping.md`.
 - Advisory or live-price content: remove prohibited language or data fields.
 

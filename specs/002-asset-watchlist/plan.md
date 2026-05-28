@@ -8,7 +8,7 @@
 
 ## Summary
 
-Define an IPC-only asset watchlist foundation so later ingestion features have a small, explicit, versioned allowlist before any live data behavior exists. The plan delivers a local JSON watchlist artifact path, design-time schema contract, sample-data expectations, validation rules, rule-ID mapping, and documentation updates while preserving non-advisory and no-runtime boundaries.
+Define an equity-primary Mexican market asset watchlist foundation so later ingestion features have a small, explicit, versioned allowlist before any live data behavior exists. The plan delivers a local JSON watchlist artifact path, design-time schema contract, sample-data expectations, validation rules, rule-ID mapping, and documentation updates while preserving non-advisory and no-runtime boundaries. `S&P/BMV IPC` may appear only as a reference benchmark, not as a replacement for individual equity monitoring targets.
 
 ## Technical Context
 
@@ -24,11 +24,11 @@ Define an IPC-only asset watchlist foundation so later ingestion features have a
 
 **Project Type**: Documentation/data-contract foundation package
 
-**Performance Goals**: Maintainer can locate `data/watchlists/asset-watchlist.json` and identify the active IPC entry in <=5 minutes; validation should be reproducible from a clean clone in <=10 minutes
+**Performance Goals**: Maintainer can locate `data/watchlists/asset-watchlist.json` and identify active equity monitoring targets plus any benchmark entry in <=5 minutes; validation should be reproducible from a clean clone in <=10 minutes
 
 **Constraints**: No live prices, scraping, external API calls, ingestion runtime, Kafka producers, FastAPI endpoints, databases, dashboard code, or AI analysis
 
-**Scale/Scope**: Exactly one active watchlist entry: symbol `IPC`, display name `S&P/BMV IPC`, asset type `index`, currency `MXN`
+**Scale/Scope**: 5-15 watchlist entries with at least 5 active individual equity monitoring targets; optional `IPC` entry is `index` + `reference_benchmark` only
 
 ## Constitution Check
 
@@ -71,7 +71,7 @@ data/
 └── samples/
     └── watchlists/
         ├── valid/
-        │   └── asset-watchlist-valid-ipc.json
+        │   └── asset-watchlist-valid-equities.json
         └── invalid/
             ├── asset-watchlist-invalid-missing-required.json
             ├── asset-watchlist-invalid-wrong-asset-type.json

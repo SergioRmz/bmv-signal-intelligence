@@ -1,12 +1,12 @@
 # Research: Initial Asset Watchlist
 
-## Decision: IPC-Only Initial Scope
+## Decision: Equity-Primary Initial Scope
 
-**Decision**: The initial watchlist contains exactly one active entry for symbol `IPC`, display name `S&P/BMV IPC`.
+**Decision**: The initial watchlist contains individual Mexican equity monitoring targets selected from well-known S&P/BMV IPC constituent reference context where identifiers are clear. `S&P/BMV IPC` may appear only as a benchmark entry with `asset_type` `index` and `asset_role` `reference_benchmark`.
 
-**Rationale**: A single IPC entry satisfies the clarified scope, minimizes ambiguity, and creates a stable allowlist boundary before any ingestion implementation. It prevents accidental expansion into individual equities, ETFs, FIBRAs, or broad index universes.
+**Rationale**: The feature is intended to govern future monitoring of specific market assets/tickers, not just the benchmark index. Equity-first scope gives ingestion features actionable symbols while keeping the benchmark available for context.
 
-**Alternatives considered**: A multi-asset BMV list was rejected because it expands scope beyond the user's clarified first vertical. Vendor-specific symbols such as `^MXX` or `MEXBOL` were rejected as canonical local identifiers because they can imply dependency on a specific external data provider.
+**Alternatives considered**: IPC-only scope was rejected because it replaces the individual asset allowlist with a benchmark. A broad BMV universe was rejected because it expands beyond a small, explicit initial list.
 
 ## Decision: JSON Watchlist Artifact
 
@@ -14,21 +14,21 @@
 
 **Rationale**: JSON is simple, deterministic, reviewable, and directly consumable by future ingestion services without introducing runtime behavior. The path separates governed data artifacts from documentation and feature planning outputs.
 
-**Alternatives considered**: Markdown was rejected because it is less suitable for future machine validation. A root `contracts/` path was deferred because this feature creates a local allowlist artifact, while the design schema remains in `specs/002-asset-watchlist/contracts/` until implementation planning promotes a repository-wide contract.
+**Alternatives considered**: Markdown was rejected because it is less suitable for future machine validation. A database schema was rejected because the feature explicitly forbids database implementation.
 
 ## Decision: Design Contract Uses JSON Schema Draft 2020-12
 
-**Decision**: Define the planning contract as `specs/002-asset-watchlist/contracts/asset-watchlist.schema.json` using JSON Schema Draft 2020-12.
+**Decision**: Define the planning contract as `specs/002-asset-watchlist/contracts/asset-watchlist.schema.json` and the root contract as `contracts/watchlists/asset-watchlist.schema.json` using JSON Schema Draft 2020-12.
 
 **Rationale**: The foundation feature already uses JSON Schema Draft 2020-12 for event contracts, so this keeps validation conventions consistent while remaining documentation/data-contract-only.
 
-**Alternatives considered**: Informal prose-only validation was rejected because it weakens contract-first collaboration. A database schema was rejected because the feature explicitly forbids database implementation.
+**Alternatives considered**: Informal prose-only validation was rejected because it weakens contract-first collaboration.
 
-## Decision: IPC Currency Code Is MXN
+## Decision: Currency Code Is MXN
 
-**Decision**: The IPC entry uses currency code `MXN`, with notes allowed to clarify that index observations are expressed in points.
+**Decision**: All watchlist entries use currency code `MXN`, with notes allowed to clarify that index benchmark observations are expressed in points.
 
-**Rationale**: The spec requires a standard currency code and the IPC is tied to the Mexican market context. Distinguishing currency metadata from future observation units avoids using non-standard or omitted currency values.
+**Rationale**: The watchlist is for Mexican market assets, and a required standard currency code keeps future ingestion contracts deterministic.
 
 **Alternatives considered**: `XXX` and omitted currency were rejected because they would complicate validation and conflict with the required currency field.
 
